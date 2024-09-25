@@ -1,0 +1,136 @@
+.wrapper {
+  width: fit-content;
+  border: 4px solid red;
+}
+.wrapper:hover {
+  height: 5rem;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1rem;
+  width: 100%;
+  transform: translateY(150%);
+  z-index: 10;
+  background-color: transparent;
+}
+
+.navigation_menu {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: cadetblue;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.navigation_menu_primary {
+  background-color: var(--color-primary);
+}
+.navigation_menu_secondary {
+  background-color: var(--color-secondary);
+}
+.navigation_menu_accent {
+  background-color: var(--color-accent);
+}
+
+.navigation_menu > svg {
+  /* transform: rotate(0deg); */
+  transition: 0.5s ease;
+}
+.navigation_menu[data-state="open"] > svg {
+  transform: rotate(180deg);
+}
+
+.navigation_menu__label {
+  display: flex;
+}
+
+.navigation_menu__body {
+  border-radius: 12px;
+  padding: 0;
+  position: absolute;
+  padding: 1rem;
+  left: 0;
+  top: 120%;
+  opacity: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  animation: forwards close 0.5s ease;
+  z-index: 50;
+}
+
+.navigation_menu__body_primary {
+  background-color: hsl(from var(--color-primary) h s calc(l * 1.8));
+  border: 2px solid var(--color-primary);
+}
+.navigation_menu__body_secondary {
+  background-color: hsl(from var(--color-secondary) h s calc(l * 1.8));
+  border: 2px solid var(--color-secondary);
+}
+.navigation_menu__body_accent {
+  background-color: hsl(from var(--color-accent) h s calc(l * 1.8));
+  border: 2px solid var(--color-accent);
+}
+
+.navigation_menu__content {
+  overflow: hidden;
+}
+
+.navigation_menu[data-state="open"] > .navigation_menu__body {
+  animation: forwards open 0.5s ease-out;
+}
+
+.overlay:hover + .navigation_menu__body {
+  animation: forwards open 0.5s ease-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+    min-width: 10rem;
+    grid-template-rows: 0fr;
+  }
+  50% {
+    opacity: 0.5;
+    min-width: 10rem;
+    grid-template-rows: 0.5fr;
+  }
+  to {
+    opacity: 1;
+    min-width: 10rem;
+    grid-template-rows: 1fr;
+  }
+}
+@keyframes close {
+  0% {
+    opacity: 1;
+    min-width: 10rem;
+    grid-template-rows: 1fr;
+  }
+  25% {
+    opacity: 0.75;
+    min-width: 10rem;
+    grid-template-rows: 0.75fr;
+  }
+  50% {
+    opacity: 0.5;
+    min-width: 10rem;
+    grid-template-rows: 0.5fr;
+  }
+  75% {
+    opacity: 0;
+    min-width: 10rem;
+    grid-template-rows: 0.25fr;
+  }
+  100% {
+    opacity: 0;
+    width: 5rem;
+    grid-template-rows: 0fr;
+  }
+}

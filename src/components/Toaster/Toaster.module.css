@@ -1,0 +1,131 @@
+.wrapper {
+  position: fixed;
+  top: 5%;
+  right: 2%;
+  display: flex;
+  flex-direction: column;
+  --color-sucess: green;
+  --color-fail: rgb(255, 55, 55);
+  --color-warning: goldenrod;
+}
+
+.wrapper:hover {
+  gap: 5.5rem;
+}
+.wrapper:hover > .toaster {
+  animation-play-state: paused;
+  /* animation: toast 0.5s ease forwards, toastbar 1s ease-out 3s; */
+}
+
+.toaster {
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.635);
+  opacity: 0;
+  color: white;
+  padding: 0.5rem 1rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: -5rem;
+  animation: toast 0.5s ease forwards, toastbar 0.5s ease-out forwards 2.8s;
+}
+
+/* .toaster::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-fail);
+  bottom: 0;
+  left: 0;
+  animation: toastbar 3s ease;
+} */
+
+.wrapper:first-child {
+  margin-top: 0;
+}
+
+.toaster__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.toaster__title > svg {
+  cursor: pointer;
+}
+
+.toaster__tag {
+  position: absolute;
+  height: 100%;
+  width: 1rem;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+}
+.toaster__tag_success {
+  background-color: var(--color-sucess);
+}
+.toaster__tag_fail {
+  background-color: var(--color-fail);
+}
+.toaster__tag_warning {
+  background-color: var(--color-warning);
+}
+
+.toaster__title {
+  font-weight: bold;
+  font-size: large;
+  letter-spacing: 1px;
+}
+
+.toaster__body {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+}
+.toaster__body_success {
+  background-color: var(--color-sucess);
+}
+.toaster__body_fail {
+  background-color: var(--color-fail);
+}
+.toaster__body_warning {
+  background-color: var(--color-warning);
+}
+
+.toaster__icon {
+  display: grid;
+  place-content: center;
+  height: 2rem;
+  width: 2rem;
+  background-color: white;
+  border-radius: 50%;
+  color: green;
+}
+.toaster__icon_success {
+  color: var(--color-sucess);
+}
+.toaster__icon_fail {
+  color: var(--color-fail);
+}
+.toaster__icon_warning {
+  color: var(--color-warning);
+}
+
+@keyframes toast {
+  to {
+    opacity: 1;
+    transform: translate(0, 50%);
+  }
+}
+@keyframes toastbar {
+  to {
+    opacity: 0;
+    transform: translate(100%, 50%);
+  }
+}

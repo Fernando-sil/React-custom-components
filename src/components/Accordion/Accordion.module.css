@@ -1,0 +1,64 @@
+.accordion2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+}
+
+.checkBox {
+  display: none;
+}
+
+.accordion_primary {
+  border-bottom: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.accordion_secondary {
+  border-bottom: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+}
+.accordion_accent {
+  border-bottom: 2px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.accordion__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.accordion__label > svg {
+  transition: all 0.25s ease;
+}
+
+.accordion__content {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.accordion__content_primary {
+  background-color: hsl(from var(--color-primary) h s calc(l * 2));
+}
+.accordion__content_secondary {
+  background-color: hsl(from var(--color-secondary) h s calc(l * 2));
+}
+.accordion__content_accent {
+  background-color: hsl(from var(--color-accent) h s calc(l * 2));
+}
+
+.accordion__content > div {
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.checkBox:checked ~ div > .accordion__content {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.checkBox:checked ~ div > label > .accordion__label > svg {
+  transform: rotate(180deg);
+}

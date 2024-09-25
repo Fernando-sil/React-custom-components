@@ -1,0 +1,94 @@
+nav {
+  height: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.nav__body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.nav__body > a {
+  text-decoration: none;
+  color: inherit;
+  padding: 1.5rem;
+  height: 100%;
+  transition: all 0.5s;
+}
+.nav__body > a:hover {
+  background-color: var(--color-accent);
+}
+
+.nav__body > a:nth-child(2) {
+  margin-right: auto;
+}
+
+.react_icon {
+  display: none;
+}
+
+.sideBar {
+  display: none;
+}
+
+.overlay {
+  display: none;
+}
+
+.label {
+  display: none;
+}
+
+@media (max-width: 450px) {
+  .nav__body {
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    /* background-color: var(--color-primary); */
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+    transition: 0.75s ease-out;
+  }
+  .nav__body > a {
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+  }
+  .label {
+    display: block;
+    width: 100%;
+    padding: 20px;
+  }
+  .react_icon {
+    display: block;
+    margin-left: auto;
+  }
+
+  .sideBar:checked ~ .nav__body {
+    right: 0;
+  }
+  .sideBar:checked ~ .overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}

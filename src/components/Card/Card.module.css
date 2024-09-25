@@ -1,0 +1,61 @@
+.card {
+  border-radius: 12px;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.card_primary {
+  background-color: var(--color-primary);
+  border: 2px solid hsl(from var(--color-primary) h s calc(l * 0.8));
+}
+.card_secondary {
+  background-color: var(--color-secondary);
+  border: 2px solid hsl(from var(--color-secondary) h s calc(l * 0.8));
+}
+.card_accent {
+  background-color: var(--color-accent);
+  border: 2px solid hsl(from var(--color-accent) h s calc(l * 0.8));
+}
+.card_outlineDark {
+  background-color: transparent;
+  border: 2px solid rgb(211, 211, 211);
+}
+.card_outline {
+  background-color: transparent;
+  border: 2px solid rgb(56, 56, 56);
+}
+
+.card_small {
+  width: 20rem;
+}
+.card_medium {
+  width: 35rem;
+}
+.card_large {
+  width: 40rem;
+}
+.card_fit {
+  width: fit-content;
+}
+
+.card__header,
+.card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.card__title {
+  font-size: large;
+  letter-spacing: 0.25px;
+  font-weight: 600;
+}
+
+.card__content {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}

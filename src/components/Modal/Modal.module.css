@@ -1,0 +1,109 @@
+.wrapper {
+  position: relative;
+}
+
+.dialog {
+  position: fixed;
+  border: none;
+  padding: 0;
+  border-radius: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.dialog_primary {
+  background-color: hsl(from var(--color-primary) h s calc(l * 1.5));
+}
+.dialog_secondary {
+  background-color: hsl(from var(--color-secondary) h s calc(l * 1.5));
+}
+.dialog_accent {
+  background-color: hsl(from var(--color-accent) h s calc(l * 1.5));
+}
+
+.dialog_small {
+  width: 24rem;
+}
+
+.dialog_medium {
+  width: 48rem;
+}
+
+.dialog_large {
+  width: 72rem;
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.54);
+}
+
+.close_icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(40%) translateX(-20%);
+  cursor: pointer;
+  margin-left: auto;
+  z-index: 50;
+}
+.close_icon:hover {
+  color: brown;
+}
+
+.modal__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal__heading {
+  padding-bottom: 0.5rem;
+}
+
+.modal__footer {
+  padding-top: 0.5rem;
+}
+.modal__heading,
+.modal__footer {
+  width: 95%;
+}
+
+.modal__title {
+  font-size: large;
+  letter-spacing: 5px;
+}
+
+body:has(dialog[open]) {
+  filter: blur(4px);
+}
+
+dialog,
+dialog::backdrop {
+  animation: disappear 1s ease-out;
+}
+
+dialog[open],
+dialog[open]::backdrop {
+  animation: appear 0.75s ease-in;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes disappear {
+  from {
+    display: block;
+    opacity: 1;
+  }
+  to {
+    display: none;
+    opacity: 0;
+  }
+}
